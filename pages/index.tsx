@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { sanityClient, urlFor } from "../sanity";
 import { Collection } from "../typings";
 interface Props {
@@ -24,18 +25,20 @@ const Home = ({ collections }: Props) => {
       <main className="bg-slate-100 p-10 shadow-xl shadow-rose-400/20">
         <div className="grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {collections.map((collection) => (
-            <div className="flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-110">
-              <img
-                className="h-96 w-60 rounded-2xl object-cover"
-                src={urlFor(collection.mainImage).url()}
-              />
-              <div className="p-5">
-                <h2 className="text-3xl">{collection.title}</h2>
-                <p className="mt-2 text-sm text-gray-400">
-                  {collection.description}
-                </p>
+            <Link href={`/nft/${collection.slug.current}`}>
+              <div className="flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-110">
+                <img
+                  className="h-96 w-60 rounded-2xl object-cover"
+                  src={urlFor(collection.mainImage).url()}
+                />
+                <div className="p-5">
+                  <h2 className="text-3xl">{collection.title}</h2>
+                  <p className="mt-2 text-sm text-gray-400">
+                    {collection.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>
