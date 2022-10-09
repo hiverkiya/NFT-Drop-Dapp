@@ -41,7 +41,7 @@ function NFTDropPage() {
             <span className="font-extrabold underline decoration-rose-500/60">
               DIGITAL APES
             </span>{" "}
-            NFT Market Place
+            NFT Market
           </h1>
           <button
             onClick={() => (address ? disconnect() : connectWithMetamask())}
