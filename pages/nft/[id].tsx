@@ -100,9 +100,9 @@ function NFTDropPage({ collection }: Props) {
 
       {/* Left*/}
 
-      <div className="lg:col-span-4 bg-gradient-to-br from-cyan-800 to-rose-500">
+      <div className="lg:col-span-4 bg-gradient-to-br from-blue-300 to-rose-500">
         <div className="flex flex-col items-center justify-center py-2 lg:min-h-screen">
-          <div className="bg-gradient-to-br from-yellow-400 to-purple-600 p-2 rounded-xl">
+          <div className="bg-gradient-to-br from-blue-400 to-lime-600 p-2 rounded-xl">
             <img
               src={urlFor(collection.previewImage).url()}
               alt=""
@@ -110,13 +110,12 @@ function NFTDropPage({ collection }: Props) {
             />
           </div>
 
-          <div className="text-center p-5 space-y-2 ">
-            <h1 className="text-4xl font-bold text-white">
+          <div className="text-center p-5 space-y-3 ">
+            <h1 className="uppercase text-6xl text-white font-bold animate-pulse duration-500 underline">
               {collection.nftCollectionName}
             </h1>
-            <h2 className="text-xl text-gray-300">
-              {collection.description} Digital NFT Apes is where you belong.
-              Join us in the world of NFTs !
+            <h2 className="font-medium uppercase text-xl text-black">
+              {collection.description}
             </h2>
           </div>
         </div>
@@ -171,7 +170,7 @@ function NFTDropPage({ collection }: Props) {
               Loading the Supply count
             </p>
           ) : (
-            <p className="pt-2 text-xl text-green-500 uppercase">
+            <p className="pt-2 text-xl text-green-500 uppercase animate-pulse">
               {" "}
               {claimedSupply} / {totalSupply?.toString()} NFT's claimed
             </p>
@@ -199,7 +198,7 @@ function NFTDropPage({ collection }: Props) {
           ) : !address ? (
             <>Sign in to Mint</>
           ) : (
-            <span className="font-bold">Mint NFT ({priceInEth} ETH)</span>
+            <span className="font-bold animate-pulse duration-200 uppercase">Mint NFT ({priceInEth} ETH)</span>
           )}
         </button>
       </div>
